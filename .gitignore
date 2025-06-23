@@ -24,3 +24,6 @@ Thumbs.db
 
 #Datasets as its too large 
 Datasets/
+
+#all the models that will be saved 
+*.pkl
