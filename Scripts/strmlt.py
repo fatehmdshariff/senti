@@ -4,15 +4,25 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+from pathlib import Path
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+
+MODEL1_PATH = ROOT_DIR / "Models" / "eng_log_reg_model.pkl"
+MODEL2_PATH = ROOT_DIR / "Models" / "eng_n_b_model.pkl"
+MODEL3_PATH = ROOT_DIR / "Models" / "eng_tfidf_vectorizer.pkl"
+MODEL4_PATH = ROOT_DIR / "Models" / "logistic_model_arabic.pkl"
+MODEL5_PATH = ROOT_DIR / "Models" / "naive_bayes_model_arabic.pkl"
+MODEL6_PATH = ROOT_DIR / "Models" / "tfidf_vectorizer_arabic.pkl"
 
 # Load models and vectorizers
-logreg_en = joblib.load(r"D:\Projects_25\Sentiment_analysis\senti\Models\eng_log_reg_model.pkl")
-nb_en = joblib.load(r"D:\Projects_25\Sentiment_analysis\senti\Models\eng_n_b_model.pkl")
-vectorizer_en = joblib.load(r"D:\Projects_25\Sentiment_analysis\senti\Models\eng_tfidf_vectorizer.pkl")
+logreg_en = joblib.load(MODEL1_PATH)
+nb_en = joblib.load(MODEL2_PATH)
+vectorizer_en = joblib.load(MODEL3_PATH)
 
-logreg_ar = joblib.load(r"D:\Projects_25\Sentiment_analysis\senti\Models\logistic_model_arabic.pkl")
-nb_ar = joblib.load(r"D:\Projects_25\Sentiment_analysis\senti\Models\naive_bayes_model_arabic.pkl")
-vectorizer_ar = joblib.load(r"D:\Projects_25\Sentiment_analysis\senti\Models\tfidf_vectorizer_arabic.pkl")
+logreg_ar = joblib.load(MODEL4_PATH)
+nb_ar = joblib.load(MODEL5_PATH)
+vectorizer_ar = joblib.load(MODEL6_PATH)
 
 # Streamlit UI setup
 st.set_page_config(page_title="Bilingual Sentiment Analyzer", page_icon="🗣️", layout="wide")
